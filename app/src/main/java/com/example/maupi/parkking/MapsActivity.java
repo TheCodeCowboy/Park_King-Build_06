@@ -59,8 +59,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             meters.add(putDataintoMeter(i));
         }
 
-        for(ParkingMeterData p : meters){
-            if(db.checkMeterTable()){
+
+        if(db.checkMeterTable()){
+            for(ParkingMeterData p : meters){
                 db.insertMeter(p);
             }
         }

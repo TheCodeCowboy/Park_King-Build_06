@@ -25,7 +25,12 @@
             android:name=".getPaymentInfo"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MapsActivity" />
-        <activity android:name=".MeterActivity"></activity>
+        <activity android:name=".MeterActivity" />
+
+        <service
+            android:name=".Timer"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
