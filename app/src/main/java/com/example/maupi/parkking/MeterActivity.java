@@ -1,5 +1,6 @@
 package com.example.maupi.parkking;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +47,17 @@ public class MeterActivity extends AppCompatActivity {
     public void payMeter(View view) {
         int selectedID = amtgrp.getCheckedRadioButtonId();
         amtbtn = (RadioButton) findViewById(selectedID);
+        int time = 0;
+        Intent intent = new Intent(this, Timer.class);
+        if (amtbtn.getId() == R.id.radio_5min)
+            time = 60000 *5;
+        else if (amtbtn.getId() == R.id.radio_15min)
+            time = 60000 * 15;
+        else if (amtbtn.getId() == R.id.radio_30min)
+            time = 60000 * 30;
+
         Toast.makeText(MeterActivity.this, amtbtn.getText(), Toast.LENGTH_SHORT).show();
+        intent.putExtra("time", time);
+        startService(intent);
     }
 }
